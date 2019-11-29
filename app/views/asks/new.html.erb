@@ -1,0 +1,36 @@
+<div class='topPage'>
+  <div class="container">
+    <h1>Telling the annoing harasment</h1>
+    <p>Tellign the harrsament instead of you 
+    </p>
+    <%= form_with(model: @ask, url: asks_check_path, local: true) do |f| %>
+    <% if @ask.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <strong>Attention!! some information is blank</strong>
+    <ul>
+      <% @ask.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+      <div class="form-group">
+       <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "name" %>
+      </div>
+      <div class="form-group">
+       <%= f.label :email %>
+        <%= f.text_field :email, autofocus: true, class: "form-control", placeholder: "e-mail" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :relationship %>
+        <%= f.select(:relationship, [ ["Boss", "Boss"], ["President", "President"]], {}, class: "form-control") %>
+      </div>
+      <div class="form-group">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "form-control", placeholder: "Write something you want to tell" %>
+      </div>
+       <div class="text-center"><%= f.submit 'checking page', class: 'btn btn-primary' %></div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      .userName {
+        font-weight: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><%= @user.name %> 様</h2>
+    <p>
+      <span class="userName"><%= @user.name %></span>you get a email from someone
+    </p>
+    <div>【<%= @user.name %>relationship with you 】</div>
+    <div><%= @user.relationship%></div>
+    <div>【something you must know】</div>
+    <div><%= @user.content %></div>
+  </body>
+</html>
