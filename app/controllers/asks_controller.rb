@@ -6,14 +6,14 @@ class AsksController < ApplicationController
 
   def check
 
-    # ==========ここから追加==========
+   
     @ask = Ask.new(ask_params)
     if @ask.save
       render "check"
     else
       render :new
     end
-    # ==========ここまで追加==========
+
 
   end
 
@@ -22,12 +22,11 @@ class AsksController < ApplicationController
     AskMailer.get_email(@ask).deliver_now
   end
 
-  # ==========ここから追加==========
+
   private
 
     def ask_params
       params.require(:ask).permit(:name, :email, :relationship, :content)
     end
-  # ==========ここまで追加==========
 
 end
